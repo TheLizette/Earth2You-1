@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--Namrata
+//Ruchi
+//Ayushi
+//Lizette
+//Sabrina-->
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    /*transition: 0.5s;*/
+    padding-top: 60px;
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    /*transition: 0.3s;*/
+  }
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  img.volc {
+    width:10px;
+    height:20px;
+  }
+  #volc{
+    height:100px,
+    width:100px
+  }
+  #tor{
+    height:100px,
+    width:100px
+  }
+  #fire{
+    height:100px,
+    width:100px
+  }
+  .back {
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index=-1;
+  }
+  @media screen and (max-height: 450px) {
+  }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#draggable" ).draggable();
+} );
+</script>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="file:///Users/ruchisheth/Desktop/main.html">Main Page</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <h1> Natural Disasters </h1>
+    <a href = "file:///Users/ruchisheth/Desktop/volcano.html"><img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content></a> <!-- volcano-->
+    <a href = "file:///Users/ruchisheth/Desktop/tornado.html"><img id="tor" src="./tornado.png" width="100" height="100"></a><!-- tornado-->
+    <a href = "file:///Users/ruchisheth/Desktop/fire.html"><img id="fire"src="./fire.png" width="100" height="100"> </a><!-- Wildfires-->
+    <h1> Man-made Destructions </h1>
+    <img src="./car.png" width="100" height="100"> <!-- tornado-->
+    <img src="./factory.png" width="100" height="100"> <!-- tornado-->
+    <img src="./stump.png" width="100" height="100"> <!-- tornado-->
+    <h1> Solutions </h1>
+    <img src="./tree.png" width="100" height="100"> <!-- tornado-->
+    <img src="./windmill.png" width="100" height="100"> <!-- tornado-->
+    <img src="./bike.png" width="100" height="100"> <!-- tornado-->
+    <img src="./solar.png" width="100" height="100"> <!-- tornado-->
+    <h1 id="demo" ></h1>
+  </div>
+  <span style="font-size:30px;font:Verdana;cursor:pointer" onclick="openNav()">&#9776;></span>
+  </div>
+  <div id="map">
+    <img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content> <!-- volcano-->
+    <img id="draggable" src="./tornado.png" width="100" height="100" ui-widget-content>
+  </div>
+  <div class="back"></div>
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  function closeNav() {
+   document.getElementById("mySidenav").style.width = "0";
+  }
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      center: {lat: -33.865427, lng: 151.196123},
+      mapTypeId: 'terrain'
+    });
+     var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: -36.890, lng: 151.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+     var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 50.890, lng: 213.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+      var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 68.890, lng: 111.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+      var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 56.890, lng: 101.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+      var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 36.890, lng: 131.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+     var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: -45.890, lng: 131.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+     var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 26.890, lng: 101.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+     var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 16.890, lng: 101.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+      var image = './factory.png';
+     var beachMarker = new google.maps.Marker({
+       position: {lat: 3.890, lng: 111.274},
+       map: map,
+       height: 100,
+       width:100,
+       icon: image,
+     });
+    // var image1 = './tornado.png';
+    // var beachMarker = new google.maps.Marker({
+    //   position: {lat: 35.650, lng: 139.8394},
+    //   map: map,
+    //   height: 100,
+    //   width:100,
+    //   icon: image1
+    // });
+    // var image2 = './fires.png';
+    // var beachMarker = new google.maps.Marker({
+    //   position: {lat: 34.050, lng: 118.2437},
+    //   map: map,
+    //   height: 100,
+    //   width:100,
+    //   icon: image2
+    // });
+
+	
+
+    var script = document.createElement('script');
+    script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    map.data.setStyle(function(feature) {
+      var magnitude = feature.getProperty('mag');
+      return {
+        icon: getCircle(magnitude)
+      };
+    });
+   }
+  function getCircle(magnitude) {
+    return {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      fillOpacity: .2,
+      scale: Math.pow(2, magnitude) / 2,
+      strokeColor: 'white',
+      strokeWeight: .5
+    };
+  }
+  function eqfeed_callback(results) {
+    map.data.addGeoJson(results);
+  }
+  function getJSONP(url, success) {
+    var ud = '_' + +new Date,
+    script = document.createElement('script'),
+    head = document.getElementsByTagName('head')[0]
+    || document.documentElement;
+    window[ud] = function(data) {
+      head.removeChild(script);
+      success && success(data);
+    };
+    script.src = url.replace('callback=?', 'callback=' + ud);
+    head.appendChild(script);
+  }
+  getJSONP('999999https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&preset=latest&profile=list&fields[exclude][]=source', function(data){
+    document.write(data);
+  });
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9AUvQIaqFT2N7YNYlKxcLIVa7kgFxJvI&callback=initMap">
+  </script>
+  <script>
+</script>
+</body>
+</html>
