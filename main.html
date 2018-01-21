@@ -1,21 +1,30 @@
 <!DOCTYPE html>
+<!--Namrata
+//Ruchi
+//Ayushi
+//Lizette
+//Sabrina-->
 <html>
-  <head>
-    <style>
-        
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-        .sidenav {
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/custom.css">
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidenav {
     height: 100%;
     width: 0;
     position: fixed;
@@ -26,100 +35,137 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-}
-.sidenav a {
+  }
+  .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-}
-.sidenav a:hover {
+  }
+  .sidenav a:hover {
     color: #f1f1f1;
-}
-.sidenav .closebtn {
+  }
+  .sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-}
-        img.volc {
-            width:10px;
-            height:20px;
-        }
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+  }
+
+  img.volc {
+    width:10px;
+    height:20px;
+  }
+  #volc{
+    height:100px,
+    width:100px
+  }
+  #tor{
+    height:100px,
+    width:100px
+  }
+  #fire{
+    height:100px,
+    width:100px
+  }
+  @media screen and (max-height: 450px) {
+  }
+
 </style>
-  </head>
-  <body>
-      <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<!--
+<script type="text/javascript">
+function dragWord(dragEvent){
+dragEvent.dataTransfer.setData("text/html", dragEvent.target.textContent+"|"+dragEvent.target.parentNode.id);
+}
+function dropWord(dropEvent){
+var dropData = dropEvent.dataTransfer.getData("text/html");
+var dropItems = dropData.split("|");
+var prevElem = document.getElementById(dropItems[1]);
+prevElem.getElementsByTagName("div")[0].textContent = dropEvent.target.textContent;
+dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault();
+}
+</script>
+-->
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <img id="volc" src="./volcano.png" width="100" height="100"> <!-- volcano-->
     <img id="tor" src="./tornado.png" width="100" height="100"> <!-- tornado-->
     <img id="fire"src="./fire.png" width="100" height="100"> <!-- Wildfires-->
-</div>
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-    <div id="map"></div>
-    <script>
-        function openNav() {
+  </div>
+  <span style="font-size:30px;font:Verdana;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  <div id="map"></div>
+
+  <script>
+  function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-}
-function closeNav() {
+  }
+  function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-}
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2,
-          center: {lat: -33.865427, lng: 151.196123},
-          mapTypeId: 'terrain'
-        });
-        // Create a <script> tag and set the USGS URL as the source.
-        var script = document.createElement('script');
-        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-        map.data.setStyle(function(feature) {
-          var magnitude = feature.getProperty('mag');
-          return {
-            icon: getCircle(magnitude)
-          };
-        });
-      }
-      function getCircle(magnitude) {
-        return {
-          path: google.maps.SymbolPath.CIRCLE,
-          fillColor: 'red',
-          fillOpacity: .2,
-          scale: Math.pow(2, magnitude) / 2,
-          strokeColor: 'white',
-          strokeWeight: .5
-        };
-      }
-      function eqfeed_callback(results) {
-        map.data.addGeoJson(results);
-      }
-        function getJSONP(url, success) {
+  }
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 2,
+      center: {lat: -33.865427, lng: 151.196123},
+      mapTypeId: 'terrain'
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -33.890, lng: 151.274},
+      map: map,
+      height: 100,
+      width:100,
+      icon: image
+    });
+
+    // Create a <script> tag and set the USGS URL as the source.
+    var script = document.createElement('script');
+    script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+    map.data.setStyle(function(feature) {
+      var magnitude = feature.getProperty('mag');
+      return {
+        icon: getCircle(magnitude)
+      };
+    });
+  }
+  function getCircle(magnitude) {
+    return {
+      path: google.maps.SymbolPath.CIRCLE,
+      fillColor: 'red',
+      fillOpacity: .2,
+      scale: Math.pow(2, magnitude) / 2,
+      strokeColor: 'white',
+      strokeWeight: .5
+    };
+  }
+  function eqfeed_callback(results) {
+    map.data.addGeoJson(results);
+  }
+  function getJSONP(url, success) {
     var ud = '_' + +new Date,
-        script = document.createElement('script'),
-        head = document.getElementsByTagName('head')[0] 
-               || document.documentElement;
+    script = document.createElement('script'),
+    head = document.getElementsByTagName('head')[0]
+    || document.documentElement;
     window[ud] = function(data) {
-        head.removeChild(script);
-        success && success(data);
+      head.removeChild(script);
+      success && success(data);
     };
     script.src = url.replace('callback=?', 'callback=' + ud);
     head.appendChild(script);
-}
-getJSONP('999999https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&preset=latest&profile=list&fields[exclude][]=source', function(data){
+  }
+  getJSONP('999999https://api.reliefweb.int/v1/reports?appname=apidoc&limit=3&preset=latest&profile=list&fields[exclude][]=source', function(data){
     document.write(data);
-});  
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9AUvQIaqFT2N7YNYlKxcLIVa7kgFxJvI&callback=initMap">
-    </script>
-  </body>
+  });
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9AUvQIaqFT2N7YNYlKxcLIVa7kgFxJvI&callback=initMap">
+  </script>
+</body>
 </html>
