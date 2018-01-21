@@ -109,8 +109,8 @@ $( function() {
   <span style="font-size:30px;font:Verdana;cursor:pointer" onclick="openNav()">&#9776;></span>
   </div>
   <div id="map">
-    <img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content> <!-- volcano-->
-    <img id="draggable" src="./tornado.png" width="100" height="100" ui-widget-content>
+    <!--<img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content> <!-- volcano-->
+    <!--<img id="draggable" src="./tornado.png" width="100" height="100" ui-widget-content>-->
   </div>
   <div class="back"></div>
   <script>
@@ -127,30 +127,159 @@ $( function() {
       center: {lat: -33.865427, lng: 151.196123},
       mapTypeId: 'terrain'
     });
-    // var image = './volcano.png';
-    // var beachMarker = new google.maps.Marker({
-    //   position: {lat: -33.890, lng: 151.274},
-    //   map: map,
-    //   height: 100,
-    //   width:100,
-    //   icon: image,
-    // });
-    // var image1 = './tornado.png';
-    // var beachMarker = new google.maps.Marker({
-    //   position: {lat: 35.650, lng: 139.8394},
-    //   map: map,
-    //   height: 100,
-    //   width:100,
-    //   icon: image1
-    // });
-    // var image2 = './fires.png';
-    // var beachMarker = new google.maps.Marker({
-    //   position: {lat: 34.050, lng: 118.2437},
-    //   map: map,
-    //   height: 100,
-    //   width:100,
-    //   icon: image2
-    // });
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -33.890, lng: 151.274}, //Australia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -25, lng: 134.274}, //Indonesia and Papua New Guinea
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -15, lng: 125.274}, //Right of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -10, lng: 112.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 0, lng: 118.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 5, lng: 125.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 10, lng: 132.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 18, lng: 130.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 25, lng: 145.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 40, lng: 175.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 41, lng: 210.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 35, lng: 225.274}, //Top of Indonesia
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 30, lng: 228.274}, //next to oregon-ish
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 20, lng: 227.274}, //next to california-ish
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -42.890, lng: 181.274}, //New Zealand
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: -29.890, lng: 167.274},
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
+
+    var image = './volcano.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 5.890, lng: 200.274}, //Hawaii
+      map: map,
+      height: 100,
+      width:100,
+      icon: image,
+    });
 
     var script = document.createElement('script');
     script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
