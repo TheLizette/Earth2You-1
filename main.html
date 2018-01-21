@@ -11,6 +11,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <style>
   /* Always set the map height explicitly to define the size of the div
   * element that contains the map. */
@@ -23,7 +24,6 @@
     margin: 0;
     padding: 0;
   }
-
   .sidenav {
     height: 100%;
     width: 0;
@@ -54,7 +54,6 @@
     font-size: 36px;
     margin-left: 50px;
   }
-
   img.volc {
     width:10px;
     height:20px;
@@ -73,33 +72,39 @@
   }
   @media screen and (max-height: 450px) {
   }
-
 </style>
-<!--
-<script type="text/javascript">
-function dragWord(dragEvent){
-dragEvent.dataTransfer.setData("text/html", dragEvent.target.textContent+"|"+dragEvent.target.parentNode.id);
-}
-function dropWord(dropEvent){
-var dropData = dropEvent.dataTransfer.getData("text/html");
-var dropItems = dropData.split("|");
-var prevElem = document.getElementById(dropItems[1]);
-prevElem.getElementsByTagName("div")[0].textContent = dropEvent.target.textContent;
-dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault();
-}
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  $( "#draggable" ).draggable();
+} );
 </script>
--->
 </head>
 <body>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <img id="volc" src="./volcano.png" width="100" height="100"> <!-- volcano-->
+    <h1> Natural Disasters </h1>
+    <img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content> <!-- volcano-->
     <img id="tor" src="./tornado.png" width="100" height="100"> <!-- tornado-->
     <img id="fire"src="./fire.png" width="100" height="100"> <!-- Wildfires-->
+    <h1> Man-made Distructions </h1>
+    <img src="./car.png" width="100" height="100"> <!-- tornado-->
+    <img src="./factory.png" width="100" height="100"> <!-- tornado-->
+    <img src="./stump.png" width="100" height="100"> <!-- tornado-->
+    <h1> Solutions </h1>
+    <img src="./tree.png" width="100" height="100"> <!-- tornado-->
+    <img src="./windmill.png" width="100" height="100"> <!-- tornado-->
+    <img src="./bike.png" width="100" height="100"> <!-- tornado-->
+    <img src="./solar.png" width="100" height="100"> <!-- tornado-->
+    <h1 id="demo" ></h1>
   </div>
   <span style="font-size:30px;font:Verdana;cursor:pointer" onclick="openNav()">&#9776; open</span>
-  <div id="map"></div>
-
+  </div>
+  <div id="map">
+    <img id="draggable" src="./volcano.png" width="100" height="100" ui-widget-content> <!-- volcano-->
+    <div onclick="showCoords(event)">
+  </div>
   <script>
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -114,7 +119,6 @@ dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault();
       center: {lat: -33.865427, lng: 151.196123},
       mapTypeId: 'terrain'
     });
-
     var image = './volcano.png';
     var beachMarker = new google.maps.Marker({
       position: {lat: -33.890, lng: 151.274},
@@ -123,8 +127,23 @@ dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault();
       width:100,
       icon: image
     });
+    var image1 = './tornado.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 35.650, lng: 139.8394},
+      map: map,
+      height: 100,
+      width:100,
+      icon: image1
+    });
+    var image2 = './fires.png';
+    var beachMarker = new google.maps.Marker({
+      position: {lat: 34.050, lng: 118.2437},
+      map: map,
+      height: 100,
+      width:100,
+      icon: image2
+    });
 
-    // Create a <script> tag and set the USGS URL as the source.
     var script = document.createElement('script');
     script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -167,5 +186,14 @@ dropEvent.target.textContent = dropItems[0]; dropEvent.preventDefault();
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9AUvQIaqFT2N7YNYlKxcLIVa7kgFxJvI&callback=initMap">
   </script>
+  <script>
+  function showCoords(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    var image = './tornado.png';
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    document.getElementById("demo").innerHTML = coords;
+  }
+</script>
 </body>
 </html>
